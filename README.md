@@ -16,17 +16,25 @@ This project provides an API for storing and retrieving information about contac
    ```
 4. Import the sample data to MongoDB:
    - Create a MongoDB Atlas account if you don't have one
-   - Create a new cluster and database
-   - Import the `contacts-data.json` file to a collection named `contacts`
+   - Create a new cluster and database named `cse341`
+   - Import the `contacts-data.json` file to a collection named `contacts` within the `cse341` database
+   - Alternatively, you can use MongoDB Compass to import the data:
+
+     ```bash
+     mongoimport --uri="your_connection_string" --collection=contacts --file=contacts-data.json --jsonArray --db=cse341
+     ```
 
 ## Running the Application
 
 - Development mode:
-  ```
+
+  ```bash
   npm run dev
   ```
+
 - Production mode:
-  ```
+
+  ```bash
   npm start
   ```
 

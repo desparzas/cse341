@@ -2,5 +2,18 @@
 ### Get all contacts
 GET http://localhost:8080/contacts
 
-### Get contact by ID
-GET http://localhost:8080/contacts/64a7e45d93b9b4e8e0d7f123
+### Get contact by ID (John Doe)
+GET http://localhost:8080/contacts/6820d1cf789394cf10687f07
+
+### Get contact by ID (Jane Smith)
+GET http://localhost:8080/contacts/6820d1cf789394cf10687f08
+
+### Get contact by ID (Michael Johnson)
+GET http://localhost:8080/contacts/6820d1cf789394cf10687f09
+
+// Production environment (update with your Render URL when deployed)
+### Get all contacts
+GET https://your-render-app-name.onrender.com/contacts
+
+### Get contact by ID (John Doe)
+GET https://your-render-app-name.onrender.com/contacts/6820d1cf789394cf10687f07
