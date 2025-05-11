@@ -1,0 +1,6 @@
+// Local environment
+### Get all contacts
+GET http://localhost:8080/contacts
+
+### Get contact by ID
+GET http://localhost:8080/contacts/64a7e45d93b9b4e8e0d7f123
