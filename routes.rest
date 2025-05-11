@@ -11,9 +11,15 @@ GET http://localhost:8080/contacts/6820d1cf789394cf10687f08
 ### Get contact by ID (Michael Johnson)
 GET http://localhost:8080/contacts/6820d1cf789394cf10687f09
 
-// Production environment (update with your Render URL when deployed)
+// Production environment
 ### Get all contacts
-GET https://your-render-app-name.onrender.com/contacts
+GET https://cse341-7pys.onrender.com/contacts
 
 ### Get contact by ID (John Doe)
-GET https://your-render-app-name.onrender.com/contacts/6820d1cf789394cf10687f07
+GET https://cse341-7pys.onrender.com/contacts/6820d1cf789394cf10687f07
+
+### Get contact by ID (Jane Smith)
+GET https://cse341-7pys.onrender.com/contacts/6820d1cf789394cf10687f08
+
+### Get contact by ID (Michael Johnson)
+GET https://cse341-7pys.onrender.com/contacts/6820d1cf789394cf10687f09
