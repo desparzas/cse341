@@ -3,23 +3,67 @@
 GET http://localhost:8080/contacts
 
 ### Get contact by ID (John Doe)
-GET http://localhost:8080/contacts/6820d1cf789394cf10687f07
-
-### Get contact by ID (Jane Smith)
-GET http://localhost:8080/contacts/6820d1cf789394cf10687f08
-
-### Get contact by ID (Michael Johnson)
-GET http://localhost:8080/contacts/6820d1cf789394cf10687f09
+GET http://localhost:8080/contacts/7
 
 // Production environment
 ### Get all contacts
 GET https://cse341-7pys.onrender.com/contacts
 
 ### Get contact by ID (John Doe)
-GET https://cse341-7pys.onrender.com/contacts/6820d1cf789394cf10687f07
+GET https://cse341-7pys.onrender.com/contacts/6
 
-### Get contact by ID (Jane Smith)
-GET https://cse341-7pys.onrender.com/contacts/6820d1cf789394cf10687f08
+// Test POST, PUT, DELETE operations (Local)
+### Create new contact
+POST http://localhost:8080/contacts
+Content-Type: application/json
 
-### Get contact by ID (Michael Johnson)
-GET https://cse341-7pys.onrender.com/contacts/6820d1cf789394cf10687f09
+{
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "test@example.com",
+  "favoriteColor": "purple",
+  "birthday": "1990-01-01"
+}
+
+### Update contact
+PUT http://localhost:8080/contacts/6
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe.updated@example.com",
+  "favoriteColor": "green",
+  "birthday": "1985-05-15"
+}
+
+### Delete contact
+DELETE http://localhost:8080/contacts/6820d1cf789394cf10687f07
+
+// Test POST, PUT, DELETE operations (Production)
+### Create new contact
+POST https://cse341-7pys.onrender.com/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "test@example.com",
+  "favoriteColor": "purple",
+  "birthday": "1990-01-01"
+}
+
+### Update contact
+PUT https://cse341-7pys.onrender.com/contacts/6820d1cf789394cf10687f07
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe.updated@example.com",
+  "favoriteColor": "green",
+  "birthday": "1985-05-15"
+}
+
+### Delete contact
+DELETE https://cse341-7pys.onrender.com/contacts/6820d1cf789394cf10687f07

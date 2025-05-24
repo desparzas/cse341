@@ -24,7 +24,7 @@ const options = {
       {
         url: `https://cse341-7pys.onrender.com`,
         description: 'Production server',
-      }
+      },
     ],
   },
   apis: ['./routes/*.js'], // Path to the API routes files
