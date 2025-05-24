@@ -18,12 +18,12 @@ const options = {
     },
     servers: [
       {
-        url: `http://localhost:${process.env.PORT || 8080}`,
-        description: 'Development server',
-      },
-      {
         url: `https://cse341-7pys.onrender.com`,
         description: 'Production server',
+      },
+      {
+        url: `http://localhost:${process.env.PORT || 8080}`,
+        description: 'Development server',
       },
     ],
   },
