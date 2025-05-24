@@ -15,6 +15,7 @@ This project provides an API for storing and retrieving information about contac
    PORT=8080
    ```
 4. Import the sample data to MongoDB:
+
    - Create a MongoDB Atlas account if you don't have one
    - Create a new cluster and database named `cse341`
    - Import the `contacts-data.json` file to a collection named `contacts` within the `cse341` database

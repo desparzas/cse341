@@ -4,7 +4,11 @@ const mongodb = require('../db/connect');
 // Get all contacts
 const getAllContacts = async (req, res) => {
   try {
-    const result = await mongodb.getDb().collection('contacts').find().toArray();
+    const result = await mongodb
+      .getDb()
+      .collection('contacts')
+      .find()
+      .toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result);
   } catch (err) {
@@ -20,7 +24,7 @@ const getSingleContact = async (req, res) => {
       .getDb()
       .collection('contacts')
       .findOne({ _id: contactId });
-    
+
     if (result) {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(result);
@@ -34,5 +38,5 @@ const getSingleContact = async (req, res) => {
 
 module.exports = {
   getAllContacts,
-  getSingleContact
+  getSingleContact,
 };
