@@ -1,0 +1,8 @@
+{"level":"info","message":"Fetching all contacts","timestamp":"2025-05-24T23:33:21.607Z"}
+{"level":"info","message":"Successfully fetched 9 contacts","timestamp":"2025-05-24T23:33:21.733Z"}
+{"level":"info","message":"ID","timestamp":"2025-05-24T23:33:28.092Z"}
+{"level":"info","message":"Fetching contact with ID: 11","timestamp":"2025-05-24T23:33:28.093Z"}
+{"level":"info","message":"Successfully fetched contact with ID: 11","timestamp":"2025-05-24T23:33:28.202Z"}
+{"level":"info","message":"ID","timestamp":"2025-05-24T23:33:36.133Z"}
+{"level":"info","message":"Fetching contact with ID: 3","timestamp":"2025-05-24T23:33:36.138Z"}
+{"level":"warn","message":"Contact not found with ID: 3","timestamp":"2025-05-24T23:33:36.247Z"}
