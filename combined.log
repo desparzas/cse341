@@ -6,3 +6,6 @@
 {"level":"info","message":"ID","timestamp":"2025-05-24T23:33:36.133Z"}
 {"level":"info","message":"Fetching contact with ID: 3","timestamp":"2025-05-24T23:33:36.138Z"}
 {"level":"warn","message":"Contact not found with ID: 3","timestamp":"2025-05-24T23:33:36.247Z"}
+{"level":"info","message":"Fetching all products","timestamp":"2025-05-24T23:56:09.485Z"}
+{"error":"Cannot read properties of undefined (reading 'sequence_value')","level":"error","message":"Error creating product","timestamp":"2025-05-25T00:02:54.043Z"}
+{"level":"info","message":"Fetching all products","timestamp":"2025-05-25T00:03:26.811Z"}
