@@ -107,7 +107,6 @@ const options = {
             },
           },
           example: {
-            id: 1,
             name: 'Laptop',
             description: 'Powerful laptop with 16GB RAM and 512GB SSD',
             price: 1200.50,
@@ -253,7 +252,6 @@ const options = {
                   count: 2,
                   data: [
                     {
-                      id: 1,
                       name: 'Laptop',
                       description: 'Powerful laptop with 16GB RAM and 512GB SSD',
                       price: 1200.50,

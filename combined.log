@@ -9,3 +9,5 @@
 {"level":"info","message":"Fetching all products","timestamp":"2025-05-24T23:56:09.485Z"}
 {"error":"Cannot read properties of undefined (reading 'sequence_value')","level":"error","message":"Error creating product","timestamp":"2025-05-25T00:02:54.043Z"}
 {"level":"info","message":"Fetching all products","timestamp":"2025-05-25T00:03:26.811Z"}
+{"level":"info","message":"Fetching all products","timestamp":"2025-05-25T00:09:26.036Z"}
+{"level":"info","message":"Fetching all products","timestamp":"2025-05-25T00:10:40.888Z"}
