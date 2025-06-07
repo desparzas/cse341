@@ -47,79 +47,93 @@ const options = {
       schemas: {
         Product: {
           type: 'object',
-          required: ['name', 'description', 'price', 'category', 'stock', 'manufacturer', 'isActive'],
+          required: [
+            'name',
+            'description',
+            'price',
+            'category',
+            'stock',
+            'manufacturer',
+            'isActive',
+          ],
           properties: {
             id: {
               type: 'integer',
               description: 'Auto-generated product ID',
-              readOnly: true
+              readOnly: true,
             },
             name: {
               type: 'string',
               minLength: 3,
               maxLength: 100,
               description: 'Product name',
-              example: 'Laptop'
+              example: 'Laptop',
             },
             description: {
               type: 'string',
               minLength: 10,
               maxLength: 500,
               description: 'Product description',
-              example: 'Powerful laptop with 16GB RAM and 512GB SSD'
+              example: 'Powerful laptop with 16GB RAM and 512GB SSD',
             },
             price: {
               type: 'number',
               format: 'float',
               minimum: 0,
               description: 'Product price',
-              example: 1200.50
+              example: 1200.5,
             },
             category: {
               type: 'string',
               enum: ['electronics', 'clothing', 'food', 'home', 'other'],
               description: 'Product category',
-              example: 'electronics'
+              example: 'electronics',
             },
             stock: {
               type: 'integer',
               minimum: 0,
               description: 'Available quantity in stock',
-              example: 50
+              example: 50,
             },
             manufacturer: {
               type: 'string',
               minLength: 3,
               maxLength: 100,
               description: 'Product manufacturer',
-              example: 'Dell'
+              example: 'Dell',
             },
             isActive: {
               type: 'boolean',
               description: 'Product availability status',
-              example: true
+              example: true,
             },
             createdAt: {
               type: 'string',
               format: 'date-time',
               description: 'Product creation date',
-              readOnly: true
+              readOnly: true,
             },
           },
           example: {
             name: 'Laptop',
             description: 'Powerful laptop with 16GB RAM and 512GB SSD',
-            price: 1200.50,
+            price: 1200.5,
             category: 'electronics',
             stock: 50,
             manufacturer: 'Dell',
             isActive: true,
-            createdAt: '2023-10-27T10:00:00Z'
-          }
+            createdAt: '2023-10-27T10:00:00Z',
+          },
         },
         Contact: {
           type: 'object',
-          required: ['firstName', 'lastName', 'email', 'favoriteColor', 'birthday'],
+          required: [
+            'firstName',
+            'lastName',
+            'email',
+            'favoriteColor',
+            'birthday',
+          ],
           properties: {
             id: {
               type: 'integer',
@@ -189,8 +203,8 @@ const options = {
                 success: false,
                 error: 'Validation Error',
                 message: 'Invalid input for product creation',
-                details: '"name" is required'
-              }
+                details: '"name" is required',
+              },
             },
           },
         },
@@ -204,8 +218,8 @@ const options = {
               example: {
                 success: false,
                 error: 'Not Found',
-                message: 'Product not found'
-              }
+                message: 'Product not found',
+              },
             },
           },
         },
@@ -220,8 +234,8 @@ const options = {
                 success: false,
                 error: 'Server Error',
                 message: 'Failed to retrieve products',
-                details: 'Database connection failed'
-              }
+                details: 'Database connection failed',
+              },
             },
           },
         },
@@ -234,18 +248,18 @@ const options = {
                 properties: {
                   success: {
                     type: 'boolean',
-                    example: true
+                    example: true,
                   },
                   count: {
                     type: 'integer',
-                    example: 2
+                    example: 2,
                   },
                   data: {
                     type: 'array',
                     items: {
-                      $ref: '#/components/schemas/Product'
-                    }
-                  }
+                      $ref: '#/components/schemas/Product',
+                    },
+                  },
                 },
                 example: {
                   success: true,
@@ -253,13 +267,14 @@ const options = {
                   data: [
                     {
                       name: 'Laptop',
-                      description: 'Powerful laptop with 16GB RAM and 512GB SSD',
-                      price: 1200.50,
+                      description:
+                        'Powerful laptop with 16GB RAM and 512GB SSD',
+                      price: 1200.5,
                       category: 'electronics',
                       stock: 50,
                       manufacturer: 'Dell',
                       isActive: true,
-                      createdAt: '2023-10-27T10:00:00Z'
+                      createdAt: '2023-10-27T10:00:00Z',
                     },
                     {
                       id: 2,
@@ -270,13 +285,13 @@ const options = {
                       stock: 150,
                       manufacturer: 'Logitech',
                       isActive: true,
-                      createdAt: '2023-10-27T10:05:00Z'
-                    }
-                  ]
-                }
-              }
-            }
-          }
+                      createdAt: '2023-10-27T10:05:00Z',
+                    },
+                  ],
+                },
+              },
+            },
+          },
         },
         ProductCreationSuccessResponse: {
           description: 'Product created successfully',
@@ -287,26 +302,26 @@ const options = {
                 properties: {
                   success: {
                     type: 'boolean',
-                    example: true
+                    example: true,
                   },
                   id: {
                     type: 'integer',
                     description: 'ID of the newly created product',
-                    example: 3
+                    example: 3,
                   },
                   message: {
                     type: 'string',
-                    example: 'Product created successfully'
-                  }
+                    example: 'Product created successfully',
+                  },
                 },
                 example: {
                   success: true,
                   id: 3,
-                  message: 'Product created successfully'
-                }
-              }
-            }
-          }
+                  message: 'Product created successfully',
+                },
+              },
+            },
+          },
         },
         ProductUpdateSuccessResponse: {
           description: 'Product updated successfully',
@@ -317,26 +332,26 @@ const options = {
                 properties: {
                   success: {
                     type: 'boolean',
-                    example: true
+                    example: true,
                   },
                   message: {
                     type: 'string',
-                    example: 'Product updated successfully'
+                    example: 'Product updated successfully',
                   },
                   modifiedCount: {
                     type: 'integer',
                     description: 'Number of documents modified',
-                    example: 1
-                  }
+                    example: 1,
+                  },
                 },
                 example: {
                   success: true,
                   message: 'Product updated successfully',
-                  modifiedCount: 1
-                }
-              }
-            }
-          }
+                  modifiedCount: 1,
+                },
+              },
+            },
+          },
         },
         ProductDeleteSuccessResponse: {
           description: 'Product deleted successfully',
@@ -347,23 +362,23 @@ const options = {
                 properties: {
                   success: {
                     type: 'boolean',
-                    example: true
+                    example: true,
                   },
                   message: {
                     type: 'string',
-                    example: 'Product deleted successfully'
-                  }
+                    example: 'Product deleted successfully',
+                  },
                 },
                 example: {
                   success: true,
-                  message: 'Product deleted successfully'
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+                  message: 'Product deleted successfully',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
   apis: ['./routes/*.js'],
 };
