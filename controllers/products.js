@@ -7,11 +7,13 @@ const productSchema = Joi.object({
   name: Joi.string().min(3).max(100).required(),
   description: Joi.string().min(10).max(500).required(),
   price: Joi.number().min(0).precision(2).required(),
-  category: Joi.string().valid('electronics', 'clothing', 'food', 'home', 'other').required(),
+  category: Joi.string()
+    .valid('electronics', 'clothing', 'food', 'home', 'other')
+    .required(),
   stock: Joi.number().integer().min(0).required(),
   manufacturer: Joi.string().min(3).max(100).required(),
   isActive: Joi.boolean().required(),
-  createdAt: Joi.date().default(Date.now)
+  createdAt: Joi.date().default(Date.now),
 });
 
 // Helper function to generate sequential IDs
@@ -41,14 +43,14 @@ const getAllProducts = async (req, res) => {
     res.status(200).json({
       success: true,
       count: result.length,
-      data: result
+      data: result,
     });
   } catch (err) {
     logger.error('Error fetching products', { error: err.message });
     res.status(500).json({
       error: 'Server Error',
       message: 'Failed to retrieve products',
-      details: err.message
+      details: err.message,
     });
   }
 };
@@ -60,7 +62,7 @@ const getProductById = async (req, res) => {
     if (isNaN(productId)) {
       return res.status(400).json({
         error: 'Bad Request',
-        message: 'Invalid product ID format'
+        message: 'Invalid product ID format',
       });
     }
 
@@ -72,20 +74,22 @@ const getProductById = async (req, res) => {
     if (result) {
       res.status(200).json({
         success: true,
-        data: result
+        data: result,
       });
     } else {
       res.status(404).json({
         error: 'Not Found',
-        message: 'Product not found'
+        message: 'Product not found',
       });
     }
   } catch (err) {
-    logger.error(`Error fetching product ${req.params.id}`, { error: err.message });
+    logger.error(`Error fetching product ${req.params.id}`, {
+      error: err.message,
+    });
     res.status(500).json({
       error: 'Server Error',
       message: 'Failed to retrieve product',
-      details: err.message
+      details: err.message,
     });
   }
 };
@@ -98,7 +102,7 @@ const createProduct = async (req, res) => {
     if (error) {
       return res.status(400).json({
         error: 'Validation Error',
-        details: error.details.map(d => d.message)
+        details: error.details.map((d) => d.message),
       });
     }
 
@@ -106,7 +110,7 @@ const createProduct = async (req, res) => {
     const product = {
       id: productId,
       ...value,
-      createdAt: new Date()
+      createdAt: new Date(),
     };
 
     const response = await mongodb
@@ -118,7 +122,7 @@ const createProduct = async (req, res) => {
       res.status(201).json({
         success: true,
         id: productId,
-        message: 'Product created successfully'
+        message: 'Product created successfully',
       });
     } else {
       throw new Error('Product creation not acknowledged');
@@ -128,7 +132,7 @@ const createProduct = async (req, res) => {
     res.status(500).json({
       error: 'Server Error',
       message: 'Failed to create product',
-      details: err.message
+      details: err.message,
     });
   }
 };
@@ -140,7 +144,7 @@ const updateProduct = async (req, res) => {
     if (isNaN(productId)) {
       return res.status(400).json({
         error: 'Bad Request',
-        message: 'Invalid product ID format'
+        message: 'Invalid product ID format',
       });
     }
 
@@ -149,36 +153,35 @@ const updateProduct = async (req, res) => {
     if (error) {
       return res.status(400).json({
         error: 'Validation Error',
-        details: error.details.map(d => d.message)
+        details: error.details.map((d) => d.message),
       });
     }
 
     const response = await mongodb
       .getDb()
       .collection('products')
-      .updateOne(
-        { id: productId },
-        { $set: value }
-      );
+      .updateOne({ id: productId }, { $set: value });
 
     if (response.matchedCount === 0) {
       return res.status(404).json({
         error: 'Not Found',
-        message: 'Product not found'
+        message: 'Product not found',
       });
     }
 
     res.status(200).json({
       success: true,
       message: 'Product updated successfully',
-      modifiedCount: response.modifiedCount
+      modifiedCount: response.modifiedCount,
     });
   } catch (err) {
-    logger.error(`Error updating product ${req.params.id}`, { error: err.message });
+    logger.error(`Error updating product ${req.params.id}`, {
+      error: err.message,
+    });
     res.status(500).json({
       error: 'Server Error',
       message: 'Failed to update product',
-      details: err.message
+      details: err.message,
     });
   }
 };
@@ -190,7 +193,7 @@ const deleteProduct = async (req, res) => {
     if (isNaN(productId)) {
       return res.status(400).json({
         error: 'Bad Request',
-        message: 'Invalid product ID format'
+        message: 'Invalid product ID format',
       });
     }
 
@@ -202,20 +205,22 @@ const deleteProduct = async (req, res) => {
     if (response.deletedCount === 0) {
       return res.status(404).json({
         error: 'Not Found',
-        message: 'Product not found'
+        message: 'Product not found',
       });
     }
 
     res.status(200).json({
       success: true,
-      message: 'Product deleted successfully'
+      message: 'Product deleted successfully',
     });
   } catch (err) {
-    logger.error(`Error deleting product ${req.params.id}`, { error: err.message });
+    logger.error(`Error deleting product ${req.params.id}`, {
+      error: err.message,
+    });
     res.status(500).json({
       error: 'Server Error',
       message: 'Failed to delete product',
-      details: err.message
+      details: err.message,
     });
   }
 };
@@ -225,5 +230,5 @@ module.exports = {
   getProductById,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 };
